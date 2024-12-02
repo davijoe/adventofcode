@@ -4,8 +4,8 @@ fn main() {
     dbg!(output);
 }
 
-fn part1(input: &str) -> String {
-    "todo!()".to_string()
+fn part1(input: &str) -> i32 {
+    input.lines().map(|line| line.parse::<i32>().unwrap()).sum()
 }
 
 #[cfg(test)]
@@ -14,7 +14,7 @@ mod tests {
 
     #[test]
     fn it_works() {
-        let result = part1("");
-        assert_eq!(result, "4".to_string());
+        let result = part1("11000\n13000");
+        assert_eq!(result, 24000);
     }
 }
