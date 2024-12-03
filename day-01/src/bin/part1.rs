@@ -14,7 +14,14 @@ mod tests {
 
     #[test]
     fn it_works() {
-        let result = part1("");
-        assert_eq!(result, "4".to_string());
+        let result = part1(
+            "3   4
+4   3
+2   5
+1   3
+3   9
+3   3",
+        );
+        assert_eq!(result, "11".to_string());
     }
 }
