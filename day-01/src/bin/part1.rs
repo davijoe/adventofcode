@@ -4,8 +4,19 @@ fn main() {
     dbg!(output);
 }
 
-fn part1(input: &str) -> String {
-    "todo!()".to_string()
+pub fn part1(input: &str) -> () {
+    let mut left = vec![];
+    let mut right = vec![];
+
+    for line in input.lines() {
+        let mut items = line.split_whitespace();
+        left.push(items.next().unwrap().parse::<i32>().unwrap());
+        right.push(items.next().unwrap().parse::<i32>().unwrap());
+    }
+    left.sort();
+    right.sort();
+
+    dbg!(left, right);
 }
 
 #[cfg(test)]
@@ -22,6 +33,6 @@ mod tests {
 3   9
 3   3",
         );
-        assert_eq!(result, "11".to_string());
+        assert_eq!(result, 11);
     }
 }
