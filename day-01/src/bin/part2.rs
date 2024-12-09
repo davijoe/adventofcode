@@ -10,14 +10,13 @@ pub fn part2(input: &str) -> miette::Result<String> {
 
     for line in input.lines() {
         let mut items = line.split_whitespace();
-        left.push(items.next().unwrap().parse::<i32>().unwrap());
-        right.push(items.next().unwrap().parse::<i32>().unwrap());
+        left.push(items.next().unwrap().parse::<usize>().unwrap());
+        right.push(items.next().unwrap().parse::<usize>().unwrap());
     }
-    left.sort();
-    right.sort();
 
-    let result: i32 = std::iter::zip(left, right)
-        .map(|(l, r)| (l - r).abs())
+    let result: usize = left
+        .iter()
+        .map(|number| number * right.iter().filter(|r| &number == r).count())
         .sum();
 
     Ok(result.to_string())
